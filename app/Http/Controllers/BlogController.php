@@ -28,7 +28,12 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "title" => "required|string",
+            "description" => "required|string"
+        ]);
+
+        echo "Form submitted successfully!";
     }
 
     /**
