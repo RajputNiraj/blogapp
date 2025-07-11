@@ -12,7 +12,11 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view("blog.index");
+        $blogs = Blog::orderBy("created_at", "DESC")->paginate(10); // default value 15
+        
+        return view("blog.index", [
+            "blogs" => $blogs
+        ]);
     }
 
     /**

@@ -13,11 +13,12 @@
                   </tr>
               </thead>
               <tbody>
+                @foreach($blogs as $blog)
                   <tr>
-                      <td>1</td>
-                      <td>Sample Blog Title</td>
-                      <td>This is a sample blog description</td>
-                      <td>2023-01-01</td>
+                    <td>{{ $blog->id }}</td>
+                    <td>{{ $blog->title }}</td>
+                    <td>{{ $blog->description }}</td>
+                    <td>{{ $blog->created_at }}</td>
                       <td class="action-buttons">
                           <a href="#" class="action-link view-link">View</a>
                           <a href="#" class="action-link edit-link">Edit</a>
@@ -26,10 +27,12 @@
                           </form>
                       </td>
                   </tr>
+                  @endforeach
               </tbody>
           </table>
           <div class="pagination">
-          </div>
+            {{ $blogs->links() }}
+        </div>
       </div>
   </div>
 </x-layout>
